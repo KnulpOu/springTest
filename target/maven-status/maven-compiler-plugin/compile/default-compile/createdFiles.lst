@@ -1,0 +1,4 @@
+user/model/User.class
+controller/UserController.class
+user/dao/UserMapper.class
+user/service/UserService.class
