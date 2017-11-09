@@ -156,8 +156,6 @@
             <classifier>jdk15</classifier>
         </dependency>
 
-
-
         <!-- javaee-api包 注意和项目使用的JDK版本对应 -->
         <dependency>
             <groupId>javax</groupId>
