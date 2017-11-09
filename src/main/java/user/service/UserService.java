@@ -17,4 +17,16 @@ public class UserService {
     public User getUserByName(String name) {
         return userMapper.selectByName(name);
     }
+
+    public int updateUser(User user) {
+        return userMapper.updateByPrimaryKeySelective(user);
+    }
+
+    public int deleteUserById(Integer id) {
+        return userMapper.deleteByPrimaryKey(id);
+    }
+
+    public int insertUser(User user) {
+        return userMapper.insertSelective(user);
+    }
 }
