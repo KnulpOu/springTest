@@ -1,4 +1,5 @@
-# Simple Demo of Spring + SpringMVC + MyBatis
+# Spring + SpringMVC + MyBatis
+# 
 # Database: users
 # Table: 
      CREATE TABLE t_user(USER_ID INT NOT NULL AUTO_INCREMENT,
