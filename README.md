@@ -1,7 +1,6 @@
 # Simple Demo of Spring + SpringMVC + MyBatis
-# SQL TABLE:
- #Database: users
-#create table t_user(USER_ID INT NOT NULL AUTO_INCREMENT,
+# Database: users
+# Table: create table t_user(USER_ID INT NOT NULL AUTO_INCREMENT,
      USER_NAME VARCHAR(50),
      USER_PASSWORD VARCHAR(50),
      USER_EMAIL VARCHAR(50),
