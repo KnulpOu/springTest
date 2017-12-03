@@ -46,12 +46,13 @@ public class SmartHomeController {
             if (userService.getUserById(id) != null) {
                 int result = userService.updateUser(user);
                 if (result > 0) {
-                    jsonObject.put("status", user.getUserName());
+                    jsonObject.put("LED", user.getUserId());
+                    jsonObject.put("Status", user.getUserName());
                 }
             }
             else {
                 jsonObject.put("code", 400);
-                jsonObject.put("desc", "user does NOT exist");
+                jsonObject.put("desc", "led info does not exist");
             }
         }
         catch (Exception ex) {
