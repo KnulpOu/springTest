@@ -1,5 +1,10 @@
 package user.model;
 
+/**
+ * @author Jingzhou Ou
+ * Created on 17-11-3
+ */
+
 import java.io.Serializable;
 
 public class User implements Serializable {

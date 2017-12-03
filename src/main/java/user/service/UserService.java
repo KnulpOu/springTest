@@ -1,5 +1,10 @@
 package user.service;
 
+/**
+ * @author Jingzhou Ou
+ * Created on 17-11-3
+ */
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import user.dao.UserMapper;

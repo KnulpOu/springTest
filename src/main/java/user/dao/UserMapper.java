@@ -1,5 +1,10 @@
 package user.dao;
 
+/**
+ * @author Jingzhou Ou
+ * Created on 17-11-3
+ */
+
 import user.model.User;
 
 public interface UserMapper {

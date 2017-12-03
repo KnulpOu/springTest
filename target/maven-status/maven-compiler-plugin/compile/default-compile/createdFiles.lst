@@ -1,4 +1,5 @@
 user/model/User.class
 controller/UserController.class
 user/dao/UserMapper.class
+controller/SmartHomeController.class
 user/service/UserService.class

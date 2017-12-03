@@ -1,5 +1,10 @@
 package controller;
 
+/**
+ * @author Jingzhou Ou
+ * Created on 17-11-3
+ */
+
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
@@ -7,7 +12,6 @@ import user.model.User;
 import user.service.UserService;
 
 import javax.annotation.Resource;
-
 
 @Controller
 @RequestMapping("/")
