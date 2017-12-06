@@ -46,7 +46,7 @@ public class SmartHomeController {
             if (userService.getUserById(id) != null) {
                 int result = userService.updateUser(user);
                 if (result > 0) {
-                    jsonObject.put("LED", user.getUserId());
+                    jsonObject.put("Device", user.getUserId());
                     jsonObject.put("Status", user.getUserName());
                 }
             }
