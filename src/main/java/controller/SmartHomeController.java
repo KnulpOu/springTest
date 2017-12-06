@@ -2,10 +2,7 @@ package controller;
 
 import net.sf.json.JSONObject;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 import user.model.User;
 import user.service.UserService;
 
@@ -53,6 +50,28 @@ public class SmartHomeController {
             else {
                 jsonObject.put("code", 400);
                 jsonObject.put("desc", "led info does not exist");
+            }
+        }
+        catch (Exception ex) {
+            jsonObject.put("code", 500);
+        }
+        return jsonObject;
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "device/id/{userId}", method = RequestMethod.GET)
+    public JSONObject getUserById(@PathVariable Integer userId) {
+        JSONObject jsonObject = new JSONObject();
+        try {
+            User user = userService.getUserById(userId);
+            if (user != null) {
+                jsonObject.put("id", user.getUserId());
+                jsonObject.put("name", "temperature");
+                jsonObject.put("status", user.getUserName());
+            }
+            else {
+                jsonObject.put("code", 400);
+                jsonObject.put("desc", "device does NOT exist");
             }
         }
         catch (Exception ex) {
