@@ -6,6 +6,8 @@ package user.service;
  */
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import user.dao.UserMapper;
 import user.model.User;
@@ -15,6 +17,7 @@ public class UserService {
     @Autowired
     private UserMapper userMapper;
 
+    @Cacheable("device")
     public User getUserById(Integer id) {
         return userMapper.selectByPrimaryKey(id);
     }
@@ -23,6 +26,7 @@ public class UserService {
         return userMapper.selectByName(name);
     }
 
+    @CacheEvict(value = "device", allEntries = true)
     public int updateUser(User user) {
         return userMapper.updateByPrimaryKeySelective(user);
     }

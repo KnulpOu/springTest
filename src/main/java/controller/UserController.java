@@ -10,12 +10,15 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 import user.model.User;
 import user.service.UserService;
+import org.apache.log4j.Logger;
 
 import javax.annotation.Resource;
 
 @Controller
 @RequestMapping("/")
 public class UserController {
+
+    final static Logger logger = Logger.getLogger(UserController.class);  //log4j logger
 
     @Resource
     private UserService userService;
@@ -44,6 +47,8 @@ public class UserController {
         }
         catch (Exception ex) {
             jsonObject.put("code", 500);
+            logger.error(ex);
+
         }
         return jsonObject;
     }
