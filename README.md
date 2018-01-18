@@ -1,3 +1,5 @@
+User management API using SSM frameworks
+-----------------
 # Spring + SpringMVC + MyBatis
 # 
 # Database: users
@@ -10,17 +12,17 @@
 
 # RESTful APIs
 #
-#Get user by user id:  
+* Get user by user id:  
 GET http://39.106.107.244:8080/springTest/user/id/1
 #
 #
-#Create user:  
+* Create user:  
 POST http://39.106.107.244:8080/springTest/user?name=jingzhou&password=jingzhou&email=jingzhou
 #
 #
-#Update user:  
+* Update user:  
 PUT http://39.106.107.244:8080/springTest/user?name=jingzhou&password=jingzhou&email=jingzhou&id=3
 #
 # 
-#Delete user:  
+* Delete user:  
 DELETE http://39.106.107.244:8080/springTest/user/6
