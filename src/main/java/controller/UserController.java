@@ -35,10 +35,10 @@ public class UserController {
         try {
             User user = userService.getUserById(userId);
             if (user != null) {
-                jsonObject.put("code", 200);
-                jsonObject.put("id", user.getUserId());
-                jsonObject.put("name", user.getUserName());
-                jsonObject.put("email", user.getUserEmail());
+//                jsonObject.put("code", 200);
+//                jsonObject.put("id", user.getUserId());
+                jsonObject.put("Light", user.getUserName());
+                jsonObject.put("Stove", user.getUserEmail());
             }
             else {
                 jsonObject.put("code", 400);
