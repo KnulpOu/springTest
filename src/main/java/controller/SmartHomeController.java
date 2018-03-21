@@ -7,6 +7,7 @@ import user.model.User;
 import user.service.UserService;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * @author Jingzhou Ou
@@ -21,6 +22,7 @@ public class SmartHomeController {
 
     /**
      * Update led status
+     *
      * @param id
      * @param name
      * @param password
@@ -46,13 +48,11 @@ public class SmartHomeController {
                     jsonObject.put("Device", user.getUserId());
                     jsonObject.put("Status", user.getUserName());
                 }
-            }
-            else {
+            } else {
                 jsonObject.put("code", 400);
                 jsonObject.put("desc", "led info does not exist");
             }
-        }
-        catch (Exception ex) {
+        } catch (Exception ex) {
             jsonObject.put("code", 500);
         }
         return jsonObject;
@@ -68,15 +68,49 @@ public class SmartHomeController {
                 jsonObject.put("id", user.getUserId());
                 jsonObject.put("name", "temperature");
                 jsonObject.put("status", user.getUserName());
-            }
-            else {
+            } else {
                 jsonObject.put("code", 400);
                 jsonObject.put("desc", "device does NOT exist");
             }
+        } catch (Exception ex) {
+            jsonObject.put("code", 500);
         }
-        catch (Exception ex) {
+        return jsonObject;
+    }
+
+
+
+    @ResponseBody
+    @RequestMapping(value = "home/id/{userId}", method = RequestMethod.POST)
+    public JSONObject upload(@PathVariable Integer userId, HttpServletRequest request) {
+        Integer id = userId;
+        String password = request.getParameter("Key");
+        String name = request.getParameter("Light");
+        String email = request.getParameter("Stove");
+
+
+        User user = new User();
+        user.setUserId(id);
+        user.setUserName(name);
+        user.setUserPassword(password);
+        user.setUserEmail(email);
+        JSONObject jsonObject = new JSONObject();
+        try {
+            if (userService.getUserById(id) != null) {
+                int result = userService.updateUser(user);
+                if (result > 0) {
+                    jsonObject.put("Device", user.getUserId());
+                    jsonObject.put("Status", user.getUserName());
+                }
+            } else {
+                jsonObject.put("code", 400);
+                jsonObject.put("desc", "led info does not exist");
+            }
+        } catch (Exception ex) {
             jsonObject.put("code", 500);
         }
         return jsonObject;
     }
 }
+
+
